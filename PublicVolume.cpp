@@ -153,9 +153,9 @@ status_t PublicVolume::doMount() {
         ret = exfat::Mount(mDevPath, mRawPath, false, false, false,
                 AID_MEDIA_RW, AID_MEDIA_RW, 0007);
     } else if (mFsType == "ext4") {
-        ret = ext4::Mount(mDevPath, mRawPath, false, false, true);
+        ret = ext4::Mount(mDevPath, mRawPath, false, false, true, false);
     } else if (mFsType == "f2fs") {
-        ret = f2fs::Mount(mDevPath, mRawPath);
+        ret = f2fs::Mount(mDevPath, mRawPath, false);
     } else if (mFsType == "ntfs") {
         ret = ntfs::Mount(mDevPath, mRawPath, false, false, false,
                 AID_MEDIA_RW, AID_MEDIA_RW, 0007, true);
